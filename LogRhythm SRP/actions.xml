@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<remv1:Remediation-Plugin
+  IsLogRhythmPlugin="false"
+  Version="1"
+  Guid="c1e2f3a4-b5c6-4d7e-8f9a-0b1c2d3e4f6a"
+  Name="Auto Alert"
+  xmlns:remv1="RemediationVersion1.xsd">
+
+  <remv1:GlobalParameters>
+    <remv1:ConstantParameter Name="ScriptPath" Order="1" Switch="-File payload.ps1"/>
+  </remv1:GlobalParameters>
+
+  <remv1:Action Name="Send Alarm ID" Command="C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe">
+
+    <remv1:StringParameter Name="AlarmId" Order="2" Switch="-AlarmId">
+      <remv1:DefaultInput>
+        <remv1:AlarmId/>
+      </remv1:DefaultInput>
+    </remv1:StringParameter>
+
+    <remv1:StringParameter Name="WebhookUrl" Order="3" Switch="-WebhookUrl"/>
+
+  </remv1:Action>
+
+</remv1:Remediation-Plugin>
